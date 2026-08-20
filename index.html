@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python Dict Viewer</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">{ }</span>
+      <span class="brand-name">Python Dict Viewer</span>
+    </div>
+    <div class="topbar-actions">
+      <button id="btn-sample" class="btn btn-ghost">Load sample</button>
+      <button id="btn-theme" class="btn btn-ghost" title="Toggle theme">🌓</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="pane pane-input">
+      <div class="pane-header">
+        <span>Input</span>
+        <div class="pane-header-actions">
+          <button id="btn-clear" class="btn btn-ghost btn-sm">Clear</button>
+          <button id="btn-paste" class="btn btn-ghost btn-sm">Paste</button>
+        </div>
+      </div>
+      <textarea id="input" spellcheck="false" placeholder="Paste a Python dict / repr here, e.g.
+{'lang': 'py', 'shadow': None, 'ok': True, 'ids': (1, 2, 3)}"></textarea>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section class="pane pane-output">
+      <div class="pane-header">
+        <div class="view-tabs" role="tablist">
+          <button class="tab active" data-view="tree">Tree</button>
+          <button class="tab" data-view="python">Python</button>
+          <button class="tab" data-view="json">JSON</button>
+        </div>
+        <div class="pane-header-actions">
+          <input id="search" type="search" placeholder="Search…" class="search-box" />
+          <button id="btn-expand" class="btn btn-ghost btn-sm">Expand all</button>
+          <button id="btn-collapse" class="btn btn-ghost btn-sm">Collapse all</button>
+          <button id="btn-copy" class="btn btn-primary btn-sm">Copy</button>
+        </div>
+      </div>
+      <div id="output" class="output"></div>
+    </section>
+  </main>
+
+  <script src="parser.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
